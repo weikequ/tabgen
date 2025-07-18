@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+
+- Use the bun package manager for all node-related commands. npm becomes bun, npx becomes bunx.
+- Use shadcn/ui for components (usually available in the components/ui folder, if not, add it using the shadcn/ui cli) and tailwindcss variables from globals.css for styling.
