@@ -1,13 +1,19 @@
 import { z } from "zod";
 
-export const FieldType = [
-	"string",
-	"number",
-	"boolean",
-	"date",
-	"email",
-	"url",
-] as const;
+export const FieldType = ["string", "number", "boolean"] as const;
+
+export const getFieldTypeSchema = (type: (typeof FieldType)[number]) => {
+	switch (type) {
+		case "string":
+			return z.object({ value: z.string() });
+		case "number":
+			return z.object({ value: z.number() });
+		case "boolean":
+			return z.object({ value: z.boolean() });
+		default:
+			return z.object({ value: z.string() });
+	}
+};
 
 export const fieldSchema = z.object({
 	name: z.string().describe("Name of field"),

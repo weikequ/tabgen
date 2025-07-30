@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# `tabgen`
 
-## Getting Started
+**Generate data in a tabular format with LLMs**
 
-First, run the development server:
+`tabgen` is a general purpose research tool that uses LLMs to help you research, organize, and populate data tables automatically. Simply describe what information you're looking for, and `tabgen` will generate the appropriate table structure and fill it with relevant data.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ What `tabgen` Does
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`tabgen` transforms your research ideas into structured data tables through three simple steps:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Describe Your Data**: Tell `tabgen` what kind of information you're researching (e.g., "tech startups in San Francisco," "renewable energy companies," "popular programming languages", "good tropical vacation spots")
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **AI Generates Structure**: `tabgen` automatically creates:
+   - **Column headers** (fields) relevant to your topic
+   - **Row headers** (entities/items) to research
+   - **Data cells** filled with accurate information
 
-## Learn More
+3. **Interactive Exploration**: Navigate your data using an interactive canvas
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Key Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **AI-Powered Table Generation**: Automatic creation of columns, rows, and data based on natural language descriptions
+- **Interactive Canvas**: Zoom, pan, and navigate large datasets with ease
+- **Real-time Streaming**: Watch your table populate in real-time as AI generates content
+- **Flexible Schema**: Support for different data types (strings, numbers, booleans)
+- **Customizable Prompts**: Add additional context for both columns and rows to refine results
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Technology Stack
 
-## Deploy on Vercel
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **UI**: Tailwind CSS, shadcn/ui components
+- **AI Integration**: Azure OpenAI (GPT-4.1-mini)
+- **State Management**: Zustand
+- **Spreadsheet**: react-spreadsheet
+- **Schema Validation**: Zod
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 Use Cases
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Market Research**: Generate tables of companies, products, or competitors
+- **Academic Research**: Organize information about topics, people, or concepts
+- **Data Collection**: Structure and populate datasets for analysis
+- **Content Planning**: Create organized lists with detailed attributes
+- **Competitive Analysis**: Compare features, pricing, or specifications
+
+## 🔮 Roadmap
+
+Upcoming features include:
+
+- Web search integration for real-time data
+- Citation tracking and sources
+- Export capabilities (CSV, Excel, JSON)
+- Multiple data source support (PDFs, images, audio)
+- User authentication and premium features
+- Advanced search and filtering
+- n-dimensional searching (beyond tables)
+
+## 🚦 Getting Started
+
+1. **Install dependencies**:
+
+   ```bash
+   bun install
+   ```
+
+2. **Set up environment variables**:
+   Configure your Azure OpenAI credentials
+
+3. **Run the development server**:
+
+   ```bash
+   bun dev
+   ```
+
+4. **Open your browser**:
+   Navigate to `http://localhost:3000`
+
+5. **Start generating**:
+   - Enter a description of the data you want to research
+   - Click "Generate Column Headers"
+   - Click "Generate Row Headers"
+   - Click "Generate All" to populate the table
+
+## 🤝 Contributing
+
+`tabgen` is actively being developed. Check out the [ROADMAP.md](./ROADMAP.md) to see planned features and contribute to the project.
+
+---
+
+_Transform your research ideas into structured data with the power of AI._

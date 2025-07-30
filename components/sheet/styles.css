@@ -1,3 +1,65 @@
-/* table.Spreadsheet__table {
-  @apply 
-} */
+@reference "../../app/globals.css";
+
+.Spreadsheet__data-viewer {
+	@apply text-wrap max-w-40 lg:max-w-80 block text-center text-sm;
+}
+
+.Spreadsheet__active-cell {
+	--outline-color: var(--color-primary);
+}
+
+.Spreadsheet__floating-rect--selected {
+	--outline-color: var(--color-primary);
+	--outline-background-color: color-mix(
+		in oklch,
+		transparent 80%,
+		var(--primary)
+	);
+}
+
+@property --gradient-angle {
+	syntax: "<angle>";
+	initial-value: 0deg;
+	inherits: false;
+}
+
+:root {
+	--clr-3: #ff8888;
+	--clr-4: #d0a3ff;
+	--clr-5: #94ffe6;
+}
+
+.loading__gradient {
+	position: relative;
+}
+
+.loading__gradient::before,
+.loading__gradient::after {
+	content: "";
+	position: absolute;
+	inset: -0.25rem;
+	z-index: -1;
+	background: conic-gradient(
+		from var(--gradient-angle),
+		var(--clr-3),
+		var(--clr-4),
+		var(--clr-5),
+		var(--clr-4),
+		var(--clr-3)
+	);
+	border-radius: inherit;
+	animation: rotation 5s linear infinite;
+}
+
+.loading__gradient::after {
+	filter: blur(3.5rem);
+}
+
+@keyframes rotation {
+	0% {
+		--gradient-angle: 0deg;
+	}
+	100% {
+		--gradient-angle: 360deg;
+	}
+}

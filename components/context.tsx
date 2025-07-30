@@ -29,6 +29,14 @@ export const SheetContext = createContext<{
 	openConfig: boolean;
 	setOpenConfig: Dispatch<SetStateAction<boolean>>;
 	resetData: () => void;
+	baseContext: string;
+	setBaseContext: Dispatch<SetStateAction<string>>;
+	fieldCtx: string;
+	setFieldCtx: Dispatch<SetStateAction<string>>;
+	rowCtx: string;
+	setRowCtx: Dispatch<SetStateAction<string>>;
+	isLoadingCells: boolean;
+	setIsLoadingCells: Dispatch<SetStateAction<boolean>>;
 }>({
 	fields: undefined,
 	setFields: () => {},
@@ -43,6 +51,14 @@ export const SheetContext = createContext<{
 	openConfig: true,
 	setOpenConfig: () => {},
 	resetData: () => {},
+	baseContext: "",
+	setBaseContext: () => {},
+	fieldCtx: "",
+	setFieldCtx: () => {},
+	rowCtx: "",
+	setRowCtx: () => {},
+	isLoadingCells: false,
+	setIsLoadingCells: () => {},
 });
 
 export function SheetContextProvider({
@@ -53,12 +69,15 @@ export function SheetContextProvider({
 	const [fields, setFields] = useState<
 		DeepPartial<{ fields: Field[] }> | undefined
 	>(undefined);
-	const [data, setData] = useState<Matrix<CellBase>>([]);
+	const [sheetData, setSheetData] = useState<Matrix<CellBase>>([]);
 	const [openConfig, setOpenConfig] = useState(true);
 	const [rowNames, setRowNames] = useState<
 		DeepPartial<{ rowNames: string[] }> | undefined
 	>(undefined);
-
+	const [baseContext, setBaseContext] = useState("");
+	const [fieldCtx, setFieldCtx] = useState("");
+	const [rowCtx, setRowCtx] = useState("");
+	const [isLoadingCells, setIsLoadingCells] = useState(false);
 	const {
 		object: fieldsObject,
 		submit: submitFields,
@@ -101,11 +120,19 @@ export function SheetContextProvider({
 				setRowNames,
 				isLoadingRowNames,
 				submitRowNames,
-				sheetData: data,
-				setSheetData: setData,
+				sheetData,
+				setSheetData,
 				openConfig,
 				setOpenConfig,
 				resetData,
+				baseContext,
+				setBaseContext,
+				fieldCtx,
+				setFieldCtx,
+				rowCtx,
+				setRowCtx,
+				isLoadingCells,
+				setIsLoadingCells,
 			}}
 		>
 			{children}

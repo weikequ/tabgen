@@ -11,9 +11,7 @@ export async function POST(req: Request) {
 	const result = streamObject({
 		model: azure("gpt-4.1-mini"),
 		schema: generateFieldsSchema,
-		prompt:
-			`Generate fields for a data structure in the following context. Always have the first column as the name as a string. Context:` +
-			context,
+		prompt: context,
 	});
 
 	return result.toTextStreamResponse();
